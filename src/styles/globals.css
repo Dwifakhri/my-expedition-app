@@ -1,0 +1,25 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  box-sizing: border-box;
+}
+
+p {
+  font-size: 14px;
+  margin: 0;
+}
+
+button:hover {
+  opacity: 0.85;
+}
+
+button:disabled {
+  background: rgb(161, 161, 161);
+}
+
+.main-site {
+  padding-top: 40px;
+  min-height: calc(100vh - 40px);
+}
