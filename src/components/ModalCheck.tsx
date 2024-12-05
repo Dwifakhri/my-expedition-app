@@ -72,6 +72,10 @@ const ModalCheck: React.FC<ModalCheckProps> = ({
     };
   }, []);
 
+  const checkPrice = (e: any) => {
+    e.preventDefault();
+  };
+
   return (
     isModalOpen && (
       <div
@@ -97,7 +101,9 @@ const ModalCheck: React.FC<ModalCheckProps> = ({
             </button>
           </div>
           <div className="p-4 md:p-5">
-            <form className="max-w-md mx-auto">
+            <form
+              onSubmit={(e: any) => checkPrice(e)}
+              className="max-w-md mx-auto">
               <div
                 ref={dropdownRefs.origin}
                 className="relative w-full mb-5 group">
@@ -118,10 +124,23 @@ const ModalCheck: React.FC<ModalCheckProps> = ({
                   Origin
                 </label>
                 {isDropdownOpen.origin && (
-                  <ul className="absolute top-10 left-0 w-full bg-white border border-gray-300 rounded shadow-md z-[1000]">
-                    {["DHL", "FedEx", "UPS", "USPS"].map((option) => (
+                  <ul className="absolute top-10 left-0 w-full bg-white border border-gray-300 rounded shadow-md z-[1000] h-48 overflow-y-auto">
+                    {[
+                      "DHL",
+                      "FedEx",
+                      "UPS",
+                      "USPS",
+                      "DHL",
+                      "FedEx",
+                      "UPS",
+                      "USPS",
+                      "DHL",
+                      "FedEx",
+                      "UPS",
+                      "USPS",
+                    ].map((option, i) => (
                       <li
-                        key={option}
+                        key={i}
                         onClick={() => selectOption(option, "origin")}
                         className="px-4 py-2 cursor-pointer hover:bg-blue-100">
                         {option}
@@ -151,7 +170,7 @@ const ModalCheck: React.FC<ModalCheckProps> = ({
                   Destination
                 </label>
                 {isDropdownOpen.destination && (
-                  <ul className="absolute top-10 left-0 w-full bg-white border border-gray-300 rounded shadow-md z-[1000]">
+                  <ul className="absolute top-10 left-0 w-full bg-white border border-gray-300 rounded shadow-md z-[1000] h-48 overflow-y-auto">
                     {["DHL", "FedEx", "UPS", "USPS"].map((option) => (
                       <li
                         key={option}
@@ -201,7 +220,7 @@ const ModalCheck: React.FC<ModalCheckProps> = ({
                   </label>
 
                   {isDropdownOpen.courier && (
-                    <ul className="absolute top-10 left-0 w-full bg-white border border-gray-300 rounded shadow-md">
+                    <ul className="absolute top-10 left-0 w-full bg-white border border-gray-300 rounded shadow-md h-32 overflow-y-auto">
                       {["DHL", "FedEx", "UPS", "USPS"].map((option) => (
                         <li
                           key={option}

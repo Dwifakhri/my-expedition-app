@@ -15,10 +15,9 @@ export default function Home() {
   useEffect(() => {
     const getProvince = async () => {
       const result = await customFetch("/province", {});
-      console.log(result);
       setProvince(result.data);
     };
-    getProvince();
+    // getProvince();
   }, province);
 
   return (
@@ -49,7 +48,7 @@ export default function Home() {
             className="mx-auto"
             src={Car}
             alt="card alt"
-            style={{ maxWidth: "30rem", height: "auto" }}
+            style={{ width: "100%", maxWidth: "30rem", height: "auto" }}
             priority
           />
           <ModalCheck
