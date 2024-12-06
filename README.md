@@ -1,7 +1,7 @@
 # My Expedition App
 
 My Expedition App using Next.js v13 with typescript. (https://nextjs.org/blog/next-13)
-It is built with Nextjs with some tools: context api, tailwind CSS and other nextjs feature.
+It is built with Nextjs with some tools: context API, tailwind CSS and other nextjs feature.
 
 ## Pre-requisite
 

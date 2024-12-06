@@ -1,4 +1,6 @@
-import { useEffect, useState, useRef } from "react";
+"use client";
+
+import { useState, useRef } from "react";
 import Logo from "../../public/assets/icons/logo.svg";
 import Menu from "../../public/assets/icons/menu.svg";
 import Cross from "../../public/assets/icons/cross.svg";
