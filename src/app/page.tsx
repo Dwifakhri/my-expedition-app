@@ -1,7 +1,7 @@
 import Layout from "@/components/Layout";
 import Image from "next/image";
 import Car from "../../public/assets/images/car.png";
-import ModalCheck from "@/components/ModalCheck";
+import PriceCheck from "@/components/PriceCheck";
 
 async function getRequest(url: string) {
   const base: string = process.env.NEXT_BASE_API_URL || "";
@@ -11,12 +11,12 @@ async function getRequest(url: string) {
       key: process.env.NEXT_API_KEY || "",
     },
   });
-
   if (!response.ok) {
-    throw new Error("Failed to fetch data");
+    console.error(`Error ${response.statusText} ${response.status}`);
+    throw new Error(`Failed to fetch data`);
   }
 
-  const data: any = await response.json();
+  const data = await response.json();
   return data.rajaongkir.results;
 }
 
@@ -33,9 +33,7 @@ export default async function Home() {
           <h1 className="mb-8 mt-10 text-4xl font-bold">
             Delivering Your Journey <br /> with My Expedition
           </h1>
-          <div className="flex justify-center items-center gap-x-6 mb-5">
-            <ModalCheck province={province} city={city} />
-          </div>
+          <PriceCheck province={province} city={city} />
           <Image
             className="mx-auto"
             src={Car}

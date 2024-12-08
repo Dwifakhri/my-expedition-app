@@ -8,13 +8,13 @@ const Alert = ({ status }: any) => {
   return (
     status?.current && (
       <div
-        className={`flex items-center justify-between p-4 mb-4 text-sm border rounded-lg  ${
+        className={`fixed z-[1001] flex items-center justify-between p-4 mb-4 text-sm border rounded-lg top-5 left-[50%] -translate-x-1/2 min-w-[200px] ${
           status?.current === "success"
             ? "border-green-300 bg-green-50"
             : "border-red-300 bg-red-50"
         }`}
         role="alert">
-        <div className="flex gap-x-2">
+        <div className="flex items-center gap-x-2">
           {status?.current === "success" ? (
             <Image
               src="/assets/icons/check-circle.svg"
@@ -26,8 +26,9 @@ const Alert = ({ status }: any) => {
             <Image
               src="/assets/icons/cross-circle.svg"
               alt="cross alt"
-              width={16}
-              height={16}
+              style={{ width: "25px", height: "25px" }}
+              width={25}
+              height={25}
             />
           )}
           <span className="sr-only">Info</span>
@@ -38,10 +39,12 @@ const Alert = ({ status }: any) => {
             <p className="font-bold ">
               {status?.current === "Success" ? "Success" : "Error"}!
             </p>
-            <span>{status?.message}</span>
+            <span className="text-xs">{status?.message}</span>
           </div>
         </div>
-        <button onClick={() => setStatus({ current: "", message: "" })}>
+        <button
+          className="ml-5"
+          onClick={() => setStatus({ current: "", message: "" })}>
           <Image
             src="/assets/icons/close.svg"
             alt="close alt"
